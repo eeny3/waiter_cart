@@ -19,7 +19,7 @@ void main() {
       version: 1,
       onCreate: (db, version) async {
         await db.execute('PRAGMA foreign_keys = ON');
-        await db.execute('''CREATE TABLE orders (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, tableId INTEGER, totalPrice REAL)''');
+        await db.execute('''CREATE TABLE orders (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, tableId INTEGER)''');
         await db.execute('''CREATE TABLE order_items (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, orderId INTEGER, menuItemId INTEGER, quantity INTEGER, FOREIGN KEY (orderId) REFERENCES orders(id) ON DELETE CASCADE)''');
         await db.execute('''CREATE TABLE menu_items (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT, price REAL)''');
         for(int i = 0; i < 25; i++) {

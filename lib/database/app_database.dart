@@ -43,8 +43,7 @@ class AppDatabase {
     await db.execute('''
     CREATE TABLE IF NOT EXISTS orders (
       id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-      tableId INTEGER,
-      totalPrice REAL
+      tableId INTEGER
     )
     ''');
 
